@@ -9,9 +9,9 @@ task :test => [:start_jenkins, :spec, :stop_jenkins]
 task :start_jenkins => :stop_jenkins do
   jenkins_pid = spawn 'java -DJENKINS_HOME=./jenkins/home -jar jenkins/jenkins.war'
   IO.write('jenkins/pidfile', jenkins_pid)
-  puts "Jenkins starting... pid=#{jenkins_pid}"
+  puts "[JUNKIE] Jenkins starting... pid=#{jenkins_pid}"
   sleep 33
-  puts "Jenkins should be up by now, pid=#{jenkins_pid}"
+  puts "[JUNKIE] Jenkins should be up by now, pid=#{jenkins_pid}"
 end
 
 task :stop_jenkins do
