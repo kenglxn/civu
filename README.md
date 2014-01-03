@@ -22,11 +22,9 @@ install:
     $ gem install junkie
 
 then run using:
+
     $ junkie
 
-or locally with:
-
-    $ ruby -Ilib ./bin/junkie
 
 ## Contributing
 
