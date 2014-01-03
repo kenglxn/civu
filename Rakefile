@@ -10,7 +10,7 @@ task :start_jenkins => :stop_jenkins do
   jenkins_pid = spawn 'java -DJENKINS_HOME=./jenkins/home -jar jenkins/jenkins.war'
   IO.write('jenkins/pidfile', jenkins_pid)
   puts "Jenkins starting... pid=#{jenkins_pid}"
-  sleep 15
+  sleep 33
   puts "Jenkins should be up by now, pid=#{jenkins_pid}"
 end
 
