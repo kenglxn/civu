@@ -3,8 +3,10 @@ require 'jenkins_api_client'
 
 module Junkie
   class Client
+    attr_reader :executor
     def initialize(host, uname = nil, pass = nil)
       @client = JenkinsApi::Client.new(:server_url => host, :username => uname, :password => pass)
+      @executor = Junkie::Executor.new
     end
 
     def list(view_name)
@@ -18,7 +20,19 @@ module Junkie
       end
       urls
     end
+
+    def clone(view_name)
+      urls = list(view_name)
+      urls.each do |url|
+        @executor.run("git clone #{url} #{url.partition(':').last}")
+      end
+    end
   end
 
+  class Executor
+    def run(cmd)
+      system(cmd)
+    end
+  end
 
 end

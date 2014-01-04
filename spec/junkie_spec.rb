@@ -13,7 +13,14 @@ describe 'Junkie' do
 
   it 'should list all repos based on view name' do
     client = Junkie::Client.new('http://localhost:8080', 'admin', 'admin')
+    client.list('test_view').should eq(%w(git@server:fizz/buzz git@server:foo))
+  end
 
-    client.list('test_view').should eq(['git@foo.git'])
+  it 'should clone all urls in view preserving paths' do
+    client = Junkie::Client.new('http://localhost:8080', 'admin', 'admin')
+    client.executor.stub(:run => true)
+    client.clone('test_view')
+    expect(client.executor).to have_received(:run).with('git clone git@server:fizz/buzz fizz/buzz')
+    expect(client.executor).to have_received(:run).with('git clone git@server:foo foo')
   end
 end
