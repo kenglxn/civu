@@ -11,7 +11,7 @@ end
 pidfile = 'jenkins/pidfile'
 
 task :start_jenkins do
-  jenkins_pid = spawn 'java -DJENKINS_HOME=./.jenkins/home -jar .jenkins/jenkins.war'
+  jenkins_pid = spawn 'java -DJENKINS_HOME=./jenkins/home -jar jenkins/jenkins.war'
   File.open(pidfile, 'w+') { |f| f.write(jenkins_pid) }
   puts "[JUNKIE] Jenkins starting... pid=#{jenkins_pid}"
   sleep 33
