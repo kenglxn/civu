@@ -21,8 +21,8 @@ command :list do |c|
     #say "#{options.prefix}bar#{options.suffix}"
     url = options.url || ask('What is the url to the jenkins server? ')
     username = options.username || ask('What username should I use for authentication? ')
-    password = options.password || ask('What password should I use for authentication? ')
-    view_name = args[0] || ask('Which view do you want to list repourls for? ')
+    password = options.password || ask('What password should I use for authentication? ') { |q| q.echo = '*' }
+    view_name = args[0] || ask('Which view do you want to list git repo urls for? ')
     client = Junkie::Client.new(url, username, password)
     puts client.list(view_name)
   end
