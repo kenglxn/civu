@@ -13,6 +13,7 @@ describe 'Junkie' do
 
   it 'should list all repos based on view name' do
     client = Junkie::Client.new('http://localhost:8080', 'admin', 'admin')
-    client.list('test_view').should eq(['foo'])
+
+    client.list('test_view').should eq(['git@foo.git'])
   end
 end
