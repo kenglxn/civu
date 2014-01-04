@@ -71,6 +71,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>baz</string>
         <string>foo</string>
       </jobNames>
       <jobFilters/>

@@ -13,7 +13,8 @@ module Junkie
       jobs.each do |job|
         job_xml = @client.job.get_config(job)
         doc = Nokogiri::XML(job_xml)
-        urls << doc.xpath('project//scm//userRemoteConfigs//hudson.plugins.git.UserRemoteConfig//url').first.content
+        url_node = doc.xpath('project//scm//userRemoteConfigs//hudson.plugins.git.UserRemoteConfig//url')
+        urls << url_node.first.content unless url_node.empty?
       end
       urls
     end
