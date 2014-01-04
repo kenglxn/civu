@@ -11,13 +11,19 @@ program :version, '0.0.1'
 program :description, 'a simple ruby gem for cloning git repos from jenkins views'
 
 command :list do |c|
-  c.syntax = 'junkie list [options]'
-  c.summary = ''
-  c.description = ''
+  c.syntax = 'junkie list <view_name> [options]'
+  c.description = 'list all repo urls found in given view on jenkins'
   c.example 'description', 'command example'
-  c.option '--some-switch', 'Some switch that does something'
+  c.option '--url', 'jenkins url'
+  c.option '--username', 'username to use for authentication'
+  c.option '--password', 'password to use for authentication'
   c.action do |args, options|
-    # Do something or c.when_called Junkie::Commands::List
+    #say "#{options.prefix}bar#{options.suffix}"
+    url = options.url || ask('What is the url to the jenkins server? ')
+    username = options.username || ask('What username should I use for authentication? ')
+    password = options.password || ask('What password should I use for authentication? ')
+    view_name = args[0] || ask('Which view do you want to list repourls for? ')
+    client = Junkie::Client.new(url, username, password)
+    puts client.list(view_name)
   end
 end
-
