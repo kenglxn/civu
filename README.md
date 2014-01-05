@@ -8,9 +8,28 @@ Junkie is a simple ruby CLI for cloning git repos from jenkins views
 
 ## Usage
 
+List:
+
     $ junkie list view_name
+    $ junkie list view_name --url https://myjenkins.org
+    $ junkie list view_name --url https://myjenkins.org --username kenglxn
+    $ junkie list view_name --url https://myjenkins.org --username kenglxn --password secret
+
+Clone:
+
     $ junkie clone view_name
+    $ junkie clone view_name --url https://myjenkins.org
+    $ junkie clone view_name --url https://myjenkins.org --username kenglxn
+    $ junkie clone view_name --url https://myjenkins.org --username kenglxn --password secret
+
+Help:
+
     $ junkie --help
+
+Note:
+the view_name argument and the url, username and password options are required.
+If you do not supply them, you will be asked for them interactively.
+The interactive mode is recommended for password, since you dont want it laying around in your shells history.
 
 ## Contributing
 
