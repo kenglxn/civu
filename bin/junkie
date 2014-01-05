@@ -27,3 +27,21 @@ command :list do |c|
     puts client.list(view_name)
   end
 end
+
+command :clone do |c|
+  c.syntax = 'junkie clone <view_name> [options]'
+  c.description = 'clone all repo urls found in given view on jenkins'
+  c.example 'clone git repos for view', 'junkie clone my_view --url http://myjenkins.org:8080 --username ken'
+  c.option '--url STRING', 'jenkins url'
+  c.option '--username STRING', 'username to use for authentication'
+  c.option '--password STRING', 'password to use for authentication'
+  c.option '--debug', 'log debug messages from client'
+  c.action do |args, options|
+    url = options.url || ask('What is the url to the jenkins server? ')
+    username = options.username || ask('What username should I use for authentication? ')
+    password = options.password || ask('What password should I use for authentication? ') { |q| q.echo = '*' }
+    view_name = args[0] || ask('Which view do you want to list git repo urls for? ')
+    client = Junkie::Client.new(url, username, password, options.debug)
+    client.clone(view_name)
+  end
+end
