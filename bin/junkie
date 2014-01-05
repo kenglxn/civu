@@ -6,8 +6,9 @@ $LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
 require 'junkie'
 require 'rubygems'
 require 'commander/import'
+require 'junkie/version'
 
-program :version, '0.0.1'
+program :version, Junkie::VERSION
 program :description, 'a simple ruby gem for cloning git repos from jenkins views'
 
 command :list do |c|

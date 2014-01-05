@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Junkie::VERSION
   spec.authors       = ["Ken Gullaksen"]
   spec.email         = ["ken.gullaksen@embriq.no"]
-  spec.description   = "a simple ruby gem for cloning git repos from jenkins views"
+  spec.description   = "a simple CLI for cloning git repos from jenkins views"
   spec.summary       = "solves all your problems, even on mondays"
   spec.homepage      = ""
   spec.license       = "MIT"
