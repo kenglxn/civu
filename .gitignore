@@ -18,3 +18,4 @@ tmp
 jenkins/pidfile
 jenkins/home/jobs/**/last*Build
 jenkins/home/jobs/**/nextBuildNumber
+jenkins/**/*.log
