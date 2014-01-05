@@ -23,7 +23,7 @@ module Junkie
         url_node = doc.xpath('//scm//userRemoteConfigs//hudson.plugins.git.UserRemoteConfig//url')
         urls << url_node.first.content unless url_node.empty?
       end
-      urls
+      urls.uniq
     end
 
     def clone(view_name)
