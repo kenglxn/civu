@@ -4,8 +4,13 @@ require 'jenkins_api_client'
 module Junkie
   class Client
     attr_reader :executor
-    def initialize(host, uname = nil, pass = nil)
-      @client = JenkinsApi::Client.new(:server_url => host, :username => uname, :password => pass)
+    def initialize(host, uname = nil, pass = nil, debug = false)
+      @client = JenkinsApi::Client.new(
+          :server_url => host,
+          :username => uname,
+          :password => pass,
+          :log_level => debug ? Logger::DEBUG : Logger::FATAL
+      )
       @executor = Junkie::Executor.new
     end
 

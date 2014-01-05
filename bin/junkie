@@ -17,12 +17,13 @@ command :list do |c|
   c.option '--url STRING', 'jenkins url'
   c.option '--username STRING', 'username to use for authentication'
   c.option '--password STRING', 'password to use for authentication'
+  c.option '--debug', 'log debug messages from client'
   c.action do |args, options|
     url = options.url || ask('What is the url to the jenkins server? ')
     username = options.username || ask('What username should I use for authentication? ')
     password = options.password || ask('What password should I use for authentication? ') { |q| q.echo = '*' }
     view_name = args[0] || ask('Which view do you want to list git repo urls for? ')
-    client = Junkie::Client.new(url, username, password)
+    client = Junkie::Client.new(url, username, password, options.debug)
     puts client.list(view_name)
   end
 end
