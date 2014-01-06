@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'civu/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "Civu"
+  spec.name          = "civu"
   spec.version       = Civu::VERSION
   spec.authors       = ["Ken Gullaksen"]
   spec.email         = ["ken.gullaksen@embriq.no"]
