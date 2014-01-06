@@ -31,6 +31,12 @@ the view_name argument and the url, username and password options are required.
 If you do not supply them, you will be asked for them interactively.
 The interactive mode is recommended for password, since you dont want it laying around in your shells history.
 
+## Ruby Version
+
+Verified to work with the following ruby versions:
+* 1.9.3-p392
+* 2.0.0-p0
+
 ## Contributing
 
 1. Fork it
@@ -51,6 +57,7 @@ Starting jenkins does take some time, so to get a more rapid workflow you can st
 
     $ rake start_jenkins
 
-then just run the specs each time you change something:
+Then just run the specs each time you change something:
 
     $ rake spec
+
