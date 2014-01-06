@@ -1,30 +1,30 @@
-# Junkie
+# Civu
 
-Junkie is a simple ruby CLI for cloning git repos from jenkins views
+Civu is a simple ruby CLI for cloning git repos from jenkins views
 
 ## Installation
 
-    $ gem install junkie
+    $ gem install civu
 
 ## Usage
 
 List:
 
-    $ junkie list view_name
-    $ junkie list view_name --url https://myjenkins.org
-    $ junkie list view_name --url https://myjenkins.org --username kenglxn
-    $ junkie list view_name --url https://myjenkins.org --username kenglxn --password secret
+    $ civu list view_name
+    $ civu list view_name --url https://myjenkins.org
+    $ civu list view_name --url https://myjenkins.org --username kenglxn
+    $ civu list view_name --url https://myjenkins.org --username kenglxn --password secret
 
 Clone:
 
-    $ junkie clone view_name
-    $ junkie clone view_name --url https://myjenkins.org
-    $ junkie clone view_name --url https://myjenkins.org --username kenglxn
-    $ junkie clone view_name --url https://myjenkins.org --username kenglxn --password secret
+    $ civu clone view_name
+    $ civu clone view_name --url https://myjenkins.org
+    $ civu clone view_name --url https://myjenkins.org --username kenglxn
+    $ civu clone view_name --url https://myjenkins.org --username kenglxn --password secret
 
 Help:
 
-    $ junkie --help
+    $ civu --help
 
 Note:
 the view_name argument and the url, username and password options are required.

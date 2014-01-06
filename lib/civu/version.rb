@@ -1,3 +1,3 @@
-module Junkie
+module Civu
   VERSION = "1.0.0"
 end

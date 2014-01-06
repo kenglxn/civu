@@ -3,18 +3,18 @@
 lib = File.expand_path(File.dirname(__FILE__) + '/../lib')
 $LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
 
-require 'junkie'
+require 'civu'
 require 'rubygems'
 require 'commander/import'
-require 'junkie/version'
+require 'civu/version'
 
-program :version, Junkie::VERSION
+program :version, Civu::VERSION
 program :description, 'a simple ruby gem for cloning git repos from jenkins views'
 
 command :list do |c|
-  c.syntax = 'junkie list <view_name> [options]'
+  c.syntax = 'civu list <view_name> [options]'
   c.description = 'list all repo urls found in given view on jenkins'
-  c.example 'list git repos for view', 'junkie list my_view --url http://myjenkins.org:8080 --username ken'
+  c.example 'list git repos for view', 'civu list my_view --url http://myjenkins.org:8080 --username ken'
   c.option '--url STRING', 'jenkins url'
   c.option '--username STRING', 'username to use for authentication'
   c.option '--password STRING', 'password to use for authentication'
@@ -24,15 +24,15 @@ command :list do |c|
     username = options.username || ask('What username should I use for authentication? ')
     password = options.password || ask('What password should I use for authentication? ') { |q| q.echo = '*' }
     view_name = args[0] || ask('Which view do you want to list git repo urls for? ')
-    client = Junkie::Client.new(url, username, password, options.debug)
+    client = Civu::Client.new(url, username, password, options.debug)
     puts client.list(view_name)
   end
 end
 
 command :clone do |c|
-  c.syntax = 'junkie clone <view_name> [options]'
+  c.syntax = 'civu clone <view_name> [options]'
   c.description = 'clone all repo urls found in given view on jenkins'
-  c.example 'clone git repos for view', 'junkie clone my_view --url http://myjenkins.org:8080 --username ken'
+  c.example 'clone git repos for view', 'civu clone my_view --url http://myjenkins.org:8080 --username ken'
   c.option '--url STRING', 'jenkins url'
   c.option '--username STRING', 'username to use for authentication'
   c.option '--password STRING', 'password to use for authentication'
@@ -42,7 +42,7 @@ command :clone do |c|
     username = options.username || ask('What username should I use for authentication? ')
     password = options.password || ask('What password should I use for authentication? ') { |q| q.echo = '*' }
     view_name = args[0] || ask('Which view do you want to list git repo urls for? ')
-    client = Junkie::Client.new(url, username, password, options.debug)
+    client = Civu::Client.new(url, username, password, options.debug)
     client.clone(view_name)
   end
 end

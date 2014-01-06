@@ -1,7 +1,7 @@
-require "junkie/version"
+require "civu/version"
 require 'jenkins_api_client'
 
-module Junkie
+module Civu
   class Client
     attr_reader :executor
     def initialize(host, uname = nil, pass = nil, debug = false)
@@ -11,7 +11,7 @@ module Junkie
           :password => pass,
           :log_level => debug ? Logger::DEBUG : Logger::FATAL
       )
-      @executor = Junkie::Executor.new
+      @executor = Civu::Executor.new
     end
 
     def list(view_name)

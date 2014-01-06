@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'junkie/version'
+require 'civu/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "junkie"
-  spec.version       = Junkie::VERSION
+  spec.name          = "Civu"
+  spec.version       = Civu::VERSION
   spec.authors       = ["Ken Gullaksen"]
   spec.email         = ["ken.gullaksen@embriq.no"]
   spec.description   = "a simple CLI for cloning git repos from jenkins views"
   spec.summary       = "solves all your problems, even on mondays"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/kenglxn/civu"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files | sed '/^jenkins/ d'`.split($/) # sed hack to remove jenkins folder from the gem
