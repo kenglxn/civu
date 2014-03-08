@@ -1,3 +1,5 @@
+[![Donate](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/kenglxn/)
+
 # Civu
 
 Civu is a simple ruby CLI for cloning git repos from jenkins views
